@@ -1,0 +1,41 @@
+{% extends "requerimientos/base.html" %}
+
+{% block title %}
+Detalle del requerimiento
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ requirement.title }}</h2>
+
+<p>
+    <strong>Solicitante:</strong>
+    {{ requirement.requester }}
+</p>
+
+<p>
+    <strong>Correo:</strong>
+    {{ requirement.email }}
+</p>
+
+<p>
+    <strong>Descripción:</strong>
+    {{ requirement.description }}
+</p>
+
+<p>
+    <strong>Tipo:</strong>
+    {{ requirement.requirement_type }}
+</p>
+
+<p>
+    <strong>Prioridad:</strong>
+    {{ requirement.priority }}
+</p>
+
+<p>
+    <strong>Fecha:</strong>
+    {{ requirement.created_at }}
+</p>
+
+{% endblock %}

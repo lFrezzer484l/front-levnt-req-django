@@ -36,3 +36,12 @@ def lista_requerimientos(request):
         "requerimientos/lista.html",
         {"requirements": requirement}
     )
+
+def detalle_requerimiento(request, id):
+    requirement = Requirement.objects.get(id=id)
+
+    return render(
+        request,
+        "requerimientos/detalle.html",
+        {"requirement": requirement}
+    )
