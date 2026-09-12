@@ -1,0 +1,60 @@
+{% extends "requerimientos/base.html" %}
+
+{% block title %}
+Requerimientos
+{% endblock %}
+
+{% block content %}
+
+<h2>Requerimientos registrados</h2>
+
+{% if requirements %}
+
+    {% for requirement in requirements %}
+
+        <div>
+            <h3>{{ requirement.title }}</h3>
+
+            <p>
+                <strong>Solicitante:</strong>
+                {{ requirement.requester }}
+            </p>
+
+            <p>
+                <strong>Correo:</strong>
+                {{ requirement.email }}
+            </p>
+
+            <p>
+                <strong>Descripción:</strong>
+                {{ requirement.description }}
+            </p>
+
+            <p>
+                <strong>Tipo:</strong>
+                {{ requirement.requirement_type }}
+            </p>
+
+            <p>
+                <strong>Prioridad:</strong>
+                {{ requirement.priority }}
+            </p>
+
+            <p>
+                <strong>Fecha:</strong>
+                {{ requirement.created_at }}
+            </p>
+
+            <hr>
+
+        </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <p>No hay requerimientos registrados.</p>
+
+{% endif %}
+
+{% endblock %}

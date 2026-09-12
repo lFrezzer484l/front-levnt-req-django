@@ -1,0 +1,16 @@
+# Entorno virtual
+levantamiento-req-env/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Django
+*.log
+
+# Variables de entorno
+.env
+
+# IDE
+.vscode/
+.idea/
