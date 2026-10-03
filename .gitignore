@@ -1,12 +1,14 @@
-# Entorno virtual
+# Entornos virtuales
+venv/
+.venv/
 levantamiento-req-env/
 
 # Python
 __pycache__/
-*.py[cod]
+*.pyc
 
 # Django
-*.log
+staticfiles/
 
 # Variables de entorno
 .env

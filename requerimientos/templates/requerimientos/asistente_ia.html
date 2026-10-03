@@ -1,0 +1,53 @@
+{% extends 'requerimientos/base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h1>Asistente de Requerimientos</h1>
+
+    <p>
+        Realiza preguntas relacionadas con la gestión de requerimientos
+        de software.
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div>
+            <label for="question">Pregunta:</label>
+
+            <textarea
+                id="question"
+                name="question"
+                rows="4"
+                placeholder="Escribe tu pregunta..."
+                required
+            ></textarea>
+        </div>
+
+        <button type="submit">
+            Preguntar
+        </button>
+    </form>
+
+    {% if error %}
+        <div>
+            <strong>Error:</strong>
+            {{ error }}
+        </div>
+    {% endif %}
+
+    {% if answer %}
+        <div>
+            <h2>Respuesta</h2>
+
+            <p>
+                {{ answer }}
+            </p>
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

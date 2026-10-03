@@ -6,7 +6,7 @@ Detalle del requerimiento
 
 {% block content %}
 
-<h2>{{ requirement.title }}</h2>
+<h2>{{ requirement.titulo }}</h2>
 
 <p>
     <strong>Solicitante:</strong>
@@ -37,5 +37,33 @@ Detalle del requerimiento
     <strong>Fecha:</strong>
     {{ requirement.created_at }}
 </p>
+
+<hr>
+
+<h3>Acciones</h3>
+
+<a href="{% url 'req:editar_requerimiento' requirement.id %}">
+    <button type="button">
+        Editar
+    </button>
+</a>
+
+<form method="POST"
+      action="{% url 'req:eliminar_requerimiento' requirement.id %}"
+      style="display: inline;">
+
+    {% csrf_token %}
+
+    <button type="submit">
+        Eliminar
+    </button>
+
+</form>
+
+<br><br>
+
+<a href="{% url 'req:lista_requerimientos' %}">
+    Volver a la lista
+</a>
 
 {% endblock %}

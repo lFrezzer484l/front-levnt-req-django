@@ -13,7 +13,7 @@ Requerimientos
     {% for requirement in requirements %}
 
         <div>
-            <h3>{{ requirement.title }}</h3>
+            <h3>{{ requirement.titulo }}</h3>
 
             <p>
                 <strong>Solicitante:</strong>
@@ -44,8 +44,11 @@ Requerimientos
                 <strong>Fecha:</strong>
                 {{ requirement.created_at }}
             </p>
-
-            <hr>
+            
+            <strong>Detalles:</strong>
+            <a href="{% url 'req:detalle_requerimiento' requirement.id %}">
+                Ver detalle
+            </a>
 
         </div>
 

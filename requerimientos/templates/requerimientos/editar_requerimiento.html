@@ -1,0 +1,132 @@
+{% extends "requerimientos/base.html" %}
+
+{% block title %}
+Editar requerimiento
+{% endblock %}
+
+{% block content %}
+
+<h2>Editar requerimiento</h2>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <label>Nombre del solicitante:</label>
+    <input
+        type="text"
+        name="requester"
+        value="{{ requirement.requester }}"
+        required
+    >
+
+    <br><br>
+
+    <label>Correo:</label>
+    <input
+        type="email"
+        name="email"
+        value="{{ requirement.email }}"
+        required
+    >
+
+    <br><br>
+
+    <label>Título:</label>
+    <select name="titulo" required>
+
+        <option
+            value="titulo1"
+            {% if requirement.titulo == "titulo1" %}selected{% endif %}
+        >
+            TITULO 1
+        </option>
+
+        <option
+            value="titulo2"
+            {% if requirement.titulo == "titulo2" %}selected{% endif %}
+        >
+            TITULO 2
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <label>Descripción:</label>
+    <textarea
+        name="description"
+        required
+    >{{ requirement.description }}</textarea>
+
+    <br><br>
+
+    <label>Tipo:</label>
+    <select name="requirement_type" required>
+
+        <option
+            value="Desarrollo"
+            {% if requirement.requirement_type == "Desarrollo" %}selected{% endif %}
+        >
+            Desarrollo
+        </option>
+
+        <option
+            value="Soporte"
+            {% if requirement.requirement_type == "Soporte" %}selected{% endif %}
+        >
+            Soporte
+        </option>
+
+        <option
+            value="Mejora"
+            {% if requirement.requirement_type == "Mejora" %}selected{% endif %}
+        >
+            Mejora
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <label>Prioridad:</label>
+    <select name="priority" required>
+
+        <option
+            value="Baja"
+            {% if requirement.priority == "Baja" %}selected{% endif %}
+        >
+            Baja
+        </option>
+
+        <option
+            value="Media"
+            {% if requirement.priority == "Media" %}selected{% endif %}
+        >
+            Media
+        </option>
+
+        <option
+            value="Alta"
+            {% if requirement.priority == "Alta" %}selected{% endif %}
+        >
+            Alta
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+        Actualizar requerimiento
+    </button>
+
+</form>
+
+<br>
+
+<a href="{% url 'req:detalle_requerimiento' id %}">
+    Cancelar
+</a>
+
+{% endblock %}
